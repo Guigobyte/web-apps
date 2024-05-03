@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wordle Solver HQ</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+        background: #e0e0e0;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+    }
+    .header {
+        background-color: #3a5fcd; /* Metallic blue */
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 24px;
+    }
+    .intro, .section {
+        opacity: 0;
+        transform: translateY(20px);
+        animation-fill-mode: forwards;
+        margin: 20px;
+        padding: 20px;
+        background-color: #e6e6fa; /* Light lavender for contrast */
+        border: 1px solid #bbb;
+        transition: all 0.5s ease-out;
+    }
+    .footer {
+        background-color: #2b3856; /* Dark slate blue */
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+        clear: both; /* Clear floats */
+        position: relative; /* Adjusted from fixed to relative */
+        margin-top: 20px; /* Space from content */
+    }
+    button {
+        background-color: #3a5fcd; /* Metallic blue */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    input[type="text"], input[type="email"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+</style>
+</head>
+<body onload="initPage()">
+
+<div class="header" id="greeting">
+    <h1>Welcome to Wordle Solver HQ</h1>
+    <p>Your go-to solution for daily Wordle puzzles!</p>
+</div>
+
+<div class="intro">
+    <h2>About Our Service</h2>
+    <p>Struggle with Wordle no more! Our expert team provides accurate solutions and strategies to master the game every day.</p>
+</div>
+
+<div class="section">
+    <h2>How It Works</h2>
+    <p>Subscribe to our daily newsletter to receive Wordle solutions directly to your inbox. Our hints and tips help you maintain your winning streak without spoiling the fun!</p>
+</div>
+
+<div class="section">
+    <h2>Subscribe</h2>
+    <p>Enter your email to start receiving our exclusive Wordle solutions:</p>
+    <form>
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+
+<div class="section">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out via email at <a href="mailto:support@wordlesolverhq.com">support@wordlesolverhq.com</a></p>
+</div>
+
+<div class="footer">
+    <p>Copyright © 2023 Wordle Solver HQ</p>
+</div>
+
+<script>
+    function greetUser() {
+        const today = new Date();
+        const hour = today.getHours();
+        const greetingText = document.getElementById('greeting');
+        if (hour < 12) greetingText.innerHTML = '<h1>Good Morning! Welcome to Wordle Solver HQ</h1><p>Your go-to solution for daily Wordle puzzles!</p>';
+        else if (hour < 18) greetingText.innerHTML = '<h1>Good Afternoon! Welcome to Wordle Solver HQ</h1><p>Your go-to solution for daily Wordle puzzles!</p>';
+        else greetingText.innerHTML = '<h1>Good Evening! Welcome to Wordle Solver HQ</h1><p>Your go-to solution for daily Wordle puzzles!</p>';
+    }
+
+    function showContent() {
+        const sections = document.querySelectorAll('.intro, .section');
+        for (const section of sections) {
+            section.style.opacity = 1;
+            section.style.transform = 'translateY(0)';
+        }
+    }
+
+    function initPage() {
+        greetUser();
+        setTimeout(showContent, 2000); // Delay content display by 2 seconds
+    }
+</script>
+
+</body>
+</html>
